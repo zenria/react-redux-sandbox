@@ -16,5 +16,9 @@
     margin-bottom: 20px;
 }
 .data.loading {
+    transition: 2s ease;
+    color: yellow;
+}
+.data-notloaded {
     color: grey;
 }

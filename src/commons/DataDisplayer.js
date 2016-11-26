@@ -2,13 +2,11 @@ import React from 'react';
 import classNames from 'classnames';
 
 const DataDisplayer = ({data, loading})=> {
-    if(!data){
-        return null;
-    }
     var classes = classNames({
         "data": true,
-        "loading": loading
+        "loading": loading,
+        "data-notloaded": !data
     })
-    return <div className={classes}>{data}</div>
+    return <div className={classes}>{data?data:"data not loaded"}</div>
 }
 export default DataDisplayer;
