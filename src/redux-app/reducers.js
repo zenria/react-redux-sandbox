@@ -1,5 +1,6 @@
 import { handleAction } from 'redux-actions';
 import {combineReducers, applyMiddleware, createStore } from 'redux';
+import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
 import {
     SET_CHECKBOX,
@@ -34,6 +35,6 @@ export const createAndInitStore = () => {
     const store = createStore(reducers, {
         checkboxChecked: false,
         somethingConstant: "This will never change."
-    }, applyMiddleware(createLogger()));
+    }, applyMiddleware(createLogger(), thunk));
     return store;
 }

@@ -1,4 +1,5 @@
 import { createAction } from 'redux-actions';
+import fetchData from '../commons/dataFetcher'
 
 type NoPayloadAction = {
     type: string
@@ -25,6 +26,18 @@ export const setCheckbox: (_:boolean)=> BooleanPayloadAction = createAction(SET_
 
 export const SHOW_LOADING = "SHOW_LOADING";
 export const showLoading: (_:boolean)=> BooleanPayloadAction = createAction(SHOW_LOADING);
+
+export const loadData = () => (dispatch, getState) => {
+    const isLoading = getState().showLoading;
+    if(isLoading){
+        return null;
+    }
+    dispatch(showLoading(true));
+    fetchData().then((data)=>{
+        dispatch(dataLoaded(data));
+        dispatch(showLoading(false));
+    })
+}
 
 export const DATA_LOADED =  "DATA_LOADED";
 export const dataLoaded: (_:data) => StringPayloadAction = createAction(DATA_LOADED);
