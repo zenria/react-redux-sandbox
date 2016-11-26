@@ -26,8 +26,5 @@ export const setCheckbox: (_:boolean)=> BooleanPayloadAction = createAction(SET_
 export const SHOW_LOADING = "SHOW_LOADING";
 export const showLoading: (_:boolean)=> BooleanPayloadAction = createAction(SHOW_LOADING);
 
-export const LOAD_DATA = "LOAD_DATA";
-export const loadData: ()=> NoPayloadAction = createAction(LOAD_DATA);
-
 export const DATA_LOADED =  "DATA_LOADED";
 export const dataLoaded: (_:data) => StringPayloadAction = createAction(DATA_LOADED);

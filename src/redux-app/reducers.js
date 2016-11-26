@@ -1,7 +1,5 @@
 import { handleAction } from 'redux-actions';
 import {combineReducers, applyMiddleware, createStore } from 'redux';
-import createSagaMiddleware from 'redux-saga'
-import {rootSaga} from './sagas'
 import createLogger from 'redux-logger';
 import {
     SET_CHECKBOX,
@@ -33,11 +31,9 @@ const reducers = combineReducers({
 })
 
 export const createAndInitStore = () => {
-    const sagaMiddleware = createSagaMiddleware();
     const store = createStore(reducers, {
         checkboxChecked: false,
         somethingConstant: "This will never change."
-    }, applyMiddleware(createLogger(), sagaMiddleware));
-    sagaMiddleware.run(rootSaga);
+    }, applyMiddleware(createLogger()));
     return store;
 }
