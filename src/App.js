@@ -10,12 +10,12 @@ class App extends Component {
     }
     render() {
         return (
-            <div>
-                <div>
+            <div className="root">
+                <div className="app">
                     Redux:
                     <ReduxApp/>
                 </div>
-                <div>
+                <div className="app">
                     Plain React
                     <PlainOldReactApp/>
                 </div>
