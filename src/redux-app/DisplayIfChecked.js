@@ -8,9 +8,5 @@ const mapStateToProps = (state: State) => ({
     cond: state.checkboxChecked
 })
 
-const _DisplayIfChecked = ({checked, children})=> (
-    checked && children
-)
-
 const DisplayIfChecked = connect(mapStateToProps,null)(DisplayIfCond);
 export default DisplayIfChecked;
