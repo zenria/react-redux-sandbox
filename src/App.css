@@ -1,5 +1,5 @@
 .App {
-    color: pink;
+    /*color: pink;*/
 }
 .data {
     color: green;
@@ -8,4 +8,12 @@
 }
 .data.loading {
     color: grey;
+}
+.SomeComponent {
+    border: 1px solid blue;
+    padding:10px;
+}
+
+.title {
+    font-size: 2em;
 }

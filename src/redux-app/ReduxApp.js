@@ -4,7 +4,7 @@ import {createAndInitStore} from "./reducers";
 import Checkbox from './Checkbox'
 import DisplayIfChecked from './DisplayIfChecked'
 import LoadButton from './LoadButton'
-import DataDisplayer from './DataDisplayer'
+import SomeComponent from './SomeComponent'
 
 class ReduxApp extends Component {
     constructor(props){
@@ -30,7 +30,7 @@ class ReduxApp extends Component {
                 <p>
                     <LoadButton text="Load data"/>
                 </p>
-                <DataDisplayer/>
+                <SomeComponent/>
             </div>
         </Provider>
     );

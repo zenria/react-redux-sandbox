@@ -4,6 +4,7 @@ import Checkbox from "../commons/Checkbox"
 import Button from "../commons/Button"
 import DataDisplayer from "../commons/DataDisplayer"
 import fetchData from '../commons/dataFetcher'
+import SomeComponent from './SomeComponent'
 
 class PlainOldReactApp extends Component {
     constructor(props){
@@ -16,8 +17,12 @@ class PlainOldReactApp extends Component {
     }
 
     onCheckBoxChange = (e) => {
+        this.setCheckboxState(e.target.checked)
+    }
+
+    setCheckboxState = (checked) => {
         this.setState({
-            checked: e.target.checked
+            checked: checked
         })
     }
 
@@ -52,7 +57,7 @@ class PlainOldReactApp extends Component {
                 <p>
                     <Button text="Load data" disabled={this.state.showLoading} onClick={this.loadData}/>
                 </p>
-                <DataDisplayer loading={this.state.showLoading} data={this.state.data}/>
+                <SomeComponent loading={this.state.showLoading} data={this.state.data} checked={this.state.checked} onChangeCheckbox={this.setCheckboxState}/>
             </div>
         );
     }
