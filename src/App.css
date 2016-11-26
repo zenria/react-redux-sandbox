@@ -1,0 +1,11 @@
+.App {
+    color: pink;
+}
+.data {
+    color: green;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.data.loading {
+    color: grey;
+}
