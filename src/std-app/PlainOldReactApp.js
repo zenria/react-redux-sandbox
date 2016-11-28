@@ -30,16 +30,23 @@ class PlainOldReactApp extends Component {
         if(this.state.showLoading){
             return;
         }
-        this.setState({
-            showLoading: true
-        })
+        this.showLoading(true);
         fetchData().then(function(data){
             this.setState({
-                data: data,
-                showLoading: false
+                data: data
             });
+            this.showLoading(false);
         }.bind(this));
+    }
 
+    showLoading = (loading) => {
+        this.setState({
+            showLoading: loading
+        }, function(){
+            if(typeof(this.props.onLoading)==="function"){
+                this.props.onLoading(loading);
+            }
+        })
     }
 
     render() {

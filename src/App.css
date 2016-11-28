@@ -30,3 +30,14 @@
 .title {
     font-size: 2em;
 }
+.external {
+    border: 1px solid grey;
+    padding: 10px;
+}
+.external.loading {
+    color:red;
+    font-size:20px;
+}
+.external.not-loading {
+    color: grey;
+}

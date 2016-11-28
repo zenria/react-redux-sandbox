@@ -6,12 +6,29 @@ import DisplayIfChecked from './DisplayIfChecked'
 import LoadButton from './LoadButton'
 import SomeComponent from './SomeComponent'
 
+const registerOnLoadingListener = (store, onLoading) => {
+    if(typeof(onLoading)!=="function"){
+        return;
+    }
+    let prevLoading = store.getState().showLoading;
+    store.subscribe(() => {
+        const newLoading = store.getState().showLoading;
+        if(newLoading != prevLoading){
+            onLoading(newLoading);
+            prevLoading = newLoading;
+        }
+    })
+}
+
+
 class ReduxApp extends Component {
     constructor(props){
         super(props);
+        const store = createAndInitStore()
         this.state = {
-            store:  createAndInitStore()
+            store:  store
         }
+        registerOnLoadingListener(store, props.onLoading);
     }
 
   render() {
